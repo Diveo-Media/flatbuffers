@@ -14,7 +14,16 @@
  * limitations under the License.
  */
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#if canImport(Android)
+import Android
+#elseif canImport(Glibc)
+import Glibc
+#endif
+#else
 import Foundation
+#endif
 
 /// Verifiable is a protocol all swift flatbuffers object should conform to,
 /// since swift is similar to `cpp` and `rust` where the data is read directly

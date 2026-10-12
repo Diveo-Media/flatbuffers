@@ -14,7 +14,16 @@
  * limitations under the License.
  */
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#if canImport(Android)
+import Android
+#elseif canImport(Glibc)
+import Glibc
+#endif
+#else
 import Foundation
+#endif
 
 /// FlatBuffersUtils hosts some utility functions that might be useful
 public enum FlatBuffersUtils {

@@ -14,7 +14,16 @@
  * limitations under the License.
  */
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#if canImport(Android)
+import Android
+#elseif canImport(Glibc)
+import Glibc
+#endif
+#else
 import Foundation
+#endif
 
 /// `ByteBuffer` is the interface that stores the data for a `Flatbuffers` object
 /// it allows users to write and read data directly from memory thus the use of its

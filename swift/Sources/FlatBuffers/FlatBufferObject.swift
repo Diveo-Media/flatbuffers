@@ -14,7 +14,16 @@
  * limitations under the License.
  */
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#if canImport(Android)
+import Android
+#elseif canImport(Glibc)
+import Glibc
+#endif
+#else
 import Foundation
+#endif
 
 /// NativeStruct is a protocol that indicates if the struct is a native `swift` struct
 /// since now we will be serializing native structs into the buffer.

@@ -14,7 +14,16 @@
  * limitations under the License.
  */
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#if canImport(Android)
+import Android
+#elseif canImport(Glibc)
+import Glibc
+#endif
+#else
 import Foundation
+#endif
 
 /// Verifier that check if the buffer passed into it is a valid,
 /// safe, aligned Flatbuffers object since swift read from `unsafeMemory`

@@ -14,7 +14,16 @@
  * limitations under the License.
  */
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#if canImport(Android)
+import Android
+#elseif canImport(Glibc)
+import Glibc
+#endif
+#else
 import Foundation
+#endif
 
 /// Collection of thrown from the Flatbuffer verifier
 public enum FlatbuffersErrors: Error, Equatable {
@@ -61,7 +70,7 @@ public enum FlatbuffersErrors: Error, Equatable {
 
 }
 
-#if !os(WASI)
+#if !os(WASI) && !canImport(FoundationEssentials)
 
 extension FlatbuffersErrors {
   public static func == (

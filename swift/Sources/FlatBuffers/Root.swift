@@ -14,7 +14,16 @@
  * limitations under the License.
  */
 
+#if canImport(FoundationEssentials)
+import FoundationEssentials
+#if canImport(Android)
+import Android
+#elseif canImport(Glibc)
+import Glibc
+#endif
+#else
 import Foundation
+#endif
 
 /// Takes in a prefixed sized buffer, where the prefixed size would be skipped.
 /// And would verify that the buffer passed is a valid `Flatbuffers` Object.
